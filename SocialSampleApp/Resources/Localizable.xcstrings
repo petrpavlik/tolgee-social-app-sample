@@ -2,7 +2,26 @@
   "sourceLanguage" : "en",
   "strings" : {
     "%lld" : {
-
+      "localizations" : {
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld"
+          }
+        }
+      }
     },
     "button.cancel" : {
       "extractionState" : "manual",
@@ -17,6 +36,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cancel"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
           }
         }
       }
@@ -35,27 +60,11 @@
             "state" : "translated",
             "value" : "Post"
           }
-        }
-      }
-    },
-    "Followers" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "cs" : {
+        },
+        "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ssledujícich"
-          }
-        }
-      }
-    },
-    "Following" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sledovaných"
+            "value" : "Publicar"
           }
         }
       }
