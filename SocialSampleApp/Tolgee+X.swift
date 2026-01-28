@@ -26,3 +26,22 @@ extension TolgeeText {
         self.init(resource.key, tableName: resource.table, bundle: bundle)
     }
 }
+
+extension Tolgee {
+    func translate(_ resource: LocalizedStringResource, locale: Locale = .current) -> String {
+
+        let bundle: Bundle
+        switch resource.bundle {
+        case .main:
+            bundle = .main
+        case .forClass(let className):
+            bundle = .init(for: className)
+        case .atURL(let url):
+            bundle = .init(url: url) ?? .main
+        @unknown default:
+            bundle = .main
+        }
+
+        return translate(resource.key, table: resource.table, bundle: bundle, locale: locale)
+    }
+}

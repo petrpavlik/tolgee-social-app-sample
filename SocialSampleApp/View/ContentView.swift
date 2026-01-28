@@ -13,7 +13,9 @@ struct ContentView: View {
     @State private var dataStore = DataStore()
     @State private var showingCompose = false
     @State private var selectedTab = 0
-    
+
+    @Environment(\.locale) private var locale
+
     var body: some View {
         TabView(selection: $selectedTab) {
             // Home Feed
@@ -33,7 +35,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .navigationTitle(.Tweets.title)
+                .navigationTitle(Tolgee.shared.translate(.Tweets.title, locale: locale))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: { showingCompose = true }) {
@@ -57,7 +59,7 @@ struct ContentView: View {
                         .font(.title2)
                         .foregroundColor(.secondary)
                 }
-                .navigationTitle(.Search.title)
+                .navigationTitle(Tolgee.shared.translate(.Search.title, locale: locale))
             }
             .tabItem {
                 Label(title: {TolgeeText(.Search.title)}, icon: {Image(systemName: "magnifyingglass")})
@@ -74,7 +76,7 @@ struct ContentView: View {
                         .font(.title2)
                         .foregroundColor(.secondary)
                 }
-                .navigationTitle(.Notifications.title)
+                .navigationTitle(Tolgee.shared.translate(.Notifications.title, locale: locale))
             }
             .tabItem {
                 Label(title: {TolgeeText(.Notifications.title)}, icon: {Image(systemName: "bell")})
@@ -130,6 +132,7 @@ struct ContentView: View {
                             }
                             .font(.subheadline)
                             .padding(.top, 8)
+                            TolgeeText(Assets.strings.testFromPackage)
                         }
                         .padding()
                         
@@ -151,7 +154,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .navigationTitle(.Profile.title)
+                .navigationTitle(Tolgee.shared.translate(.Profile.title, locale: locale))
                 .navigationBarTitleDisplayMode(.inline)
             }
             .tabItem {
