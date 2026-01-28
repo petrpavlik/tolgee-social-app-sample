@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Assets
+import Tolgee
 
 struct ContentView: View {
     @State private var dataStore = DataStore()
@@ -42,7 +43,7 @@ struct ContentView: View {
                 }
             }
             .tabItem {
-                Label(.Tweets.title, systemImage: "house")
+                Label(title: {TolgeeText(.Tweets.title)}, icon: {Image(systemName: "house")})
             }
             .tag(0)
             
@@ -52,14 +53,14 @@ struct ContentView: View {
                     Image(systemName: "magnifyingglass")
                         .font(.largeTitle)
                         .foregroundColor(.secondary)
-                    Text(.Search.searchPlaceholder)
+                    TolgeeText(.Search.searchPlaceholder)
                         .font(.title2)
                         .foregroundColor(.secondary)
                 }
                 .navigationTitle(.Search.title)
             }
             .tabItem {
-                Label(.Search.title, systemImage: "magnifyingglass")
+                Label(title: {TolgeeText(.Search.title)}, icon: {Image(systemName: "magnifyingglass")})
             }
             .tag(1)
             
@@ -69,14 +70,14 @@ struct ContentView: View {
                     Image(systemName: "bell")
                         .font(.largeTitle)
                         .foregroundColor(.secondary)
-                    Text(.Notifications.noContent)
+                    TolgeeText(.Notifications.noContent)
                         .font(.title2)
                         .foregroundColor(.secondary)
                 }
                 .navigationTitle(.Notifications.title)
             }
             .tabItem {
-                Label(.Notifications.title, systemImage: "bell")
+                Label(title: {TolgeeText(.Notifications.title)}, icon: {Image(systemName: "bell")})
             }
             .tag(2)
             
@@ -108,7 +109,7 @@ struct ContentView: View {
                         
                         // Profile info
                         VStack(alignment: .leading, spacing: 8) {
-                            Text(dataStore.currentUser.displayName)
+                            TolgeeText(dataStore.currentUser.displayName)
                                 .font(.title2)
                                 .bold()
                             
@@ -116,15 +117,15 @@ struct ContentView: View {
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                             
-                            Text(dataStore.currentUser.bio)
+                            TolgeeText(dataStore.currentUser.bio)
                                 .font(.body)
                                 .padding(.top, 4)
                             
                             HStack(spacing: 20) {
-                                Text(.Profile.following(dataStore.currentUser.followingCount))
+                                TolgeeText("following %lld", dataStore.currentUser.followingCount, tableName: "Profile")
                                     .bold()
                                 
-                                Text(.Profile.followers(dataStore.currentUser.followerCount))
+                                TolgeeText("followers %lld", dataStore.currentUser.followerCount, tableName: "Profile")
                                     .bold()
                             }
                             .font(.subheadline)
@@ -154,7 +155,7 @@ struct ContentView: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
             .tabItem {
-                Label(.Profile.title, systemImage: "person")
+                Label(title: {TolgeeText(.Profile.title)}, icon: {Image(systemName: "person")})
             }
             .tag(3)
         }
@@ -162,16 +163,9 @@ struct ContentView: View {
             ComposeTweetView(dataStore: dataStore)
         }
     }
-    
-    private func formatCount(_ count: Int) -> String {
-        if count >= 1000 {
-            let thousands = Double(count) / 1000.0
-            return String(format: "%.1fK", thousands)
-        }
-        return "\(count)"
-    }
 }
 
 #Preview {
     ContentView()
+        .environment(\.locale, Locale(identifier: "pt"))
 }

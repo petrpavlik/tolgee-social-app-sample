@@ -1,7 +1,7 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "followers %lld " : {
+    "followers %lld" : {
       "extractionState" : "manual",
       "localizations" : {
         "cs" : {
