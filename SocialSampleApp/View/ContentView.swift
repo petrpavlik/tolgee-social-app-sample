@@ -7,15 +7,12 @@
 
 import SwiftUI
 import Assets
-import Tolgee
 
 struct ContentView: View {
     @State private var dataStore = DataStore()
     @State private var showingCompose = false
     @State private var selectedTab = 0
-
-    @Environment(\.locale) private var locale
-
+    
     var body: some View {
         TabView(selection: $selectedTab) {
             // Home Feed
@@ -35,7 +32,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .navigationTitle(Tolgee.shared.translate(.Tweets.title, locale: locale))
+                .navigationTitle(.Tweets.title)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button(action: { showingCompose = true }) {
@@ -45,7 +42,7 @@ struct ContentView: View {
                 }
             }
             .tabItem {
-                Label(title: {TolgeeText(.Tweets.title)}, icon: {Image(systemName: "house")})
+                Label(.Tweets.title, systemImage: "house")
             }
             .tag(0)
             
@@ -55,14 +52,14 @@ struct ContentView: View {
                     Image(systemName: "magnifyingglass")
                         .font(.largeTitle)
                         .foregroundColor(.secondary)
-                    TolgeeText(.Search.searchPlaceholder)
+                    Text(.Search.searchPlaceholder)
                         .font(.title2)
                         .foregroundColor(.secondary)
                 }
-                .navigationTitle(Tolgee.shared.translate(.Search.title, locale: locale))
+                .navigationTitle(.Search.title)
             }
             .tabItem {
-                Label(title: {TolgeeText(.Search.title)}, icon: {Image(systemName: "magnifyingglass")})
+                Label(.Search.title, systemImage: "magnifyingglass")
             }
             .tag(1)
             
@@ -72,14 +69,14 @@ struct ContentView: View {
                     Image(systemName: "bell")
                         .font(.largeTitle)
                         .foregroundColor(.secondary)
-                    TolgeeText(.Notifications.noContent)
+                    Text(.Notifications.noContent)
                         .font(.title2)
                         .foregroundColor(.secondary)
                 }
-                .navigationTitle(Tolgee.shared.translate(.Notifications.title, locale: locale))
+                .navigationTitle(.Notifications.title)
             }
             .tabItem {
-                Label(title: {TolgeeText(.Notifications.title)}, icon: {Image(systemName: "bell")})
+                Label(.Notifications.title, systemImage: "bell")
             }
             .tag(2)
             
@@ -124,15 +121,14 @@ struct ContentView: View {
                                 .padding(.top, 4)
                             
                             HStack(spacing: 20) {
-                                TolgeeText("following %lld", dataStore.currentUser.followingCount, tableName: "Profile")
+                                Text(.Profile.following(dataStore.currentUser.followingCount))
                                     .bold()
                                 
-                                TolgeeText("followers %lld", dataStore.currentUser.followerCount, tableName: "Profile")
+                                Text(.Profile.followers(dataStore.currentUser.followerCount))
                                     .bold()
                             }
                             .font(.subheadline)
                             .padding(.top, 8)
-                            TolgeeText(Assets.strings.testFromPackage)
                         }
                         .padding()
                         
@@ -154,11 +150,11 @@ struct ContentView: View {
                         }
                     }
                 }
-                .navigationTitle(Tolgee.shared.translate(.Profile.title, locale: locale))
+                .navigationTitle(.Profile.title)
                 .navigationBarTitleDisplayMode(.inline)
             }
             .tabItem {
-                Label(title: {TolgeeText(.Profile.title)}, icon: {Image(systemName: "person")})
+                Label(.Profile.title, systemImage: "person")
             }
             .tag(3)
         }

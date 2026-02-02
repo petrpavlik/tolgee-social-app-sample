@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EF65F0FE2F203244000B1C59 /* Tolgee in Frameworks */ = {isa = PBXBuildFile; productRef = EF65F0FD2F203244000B1C59 /* Tolgee */; };
 		EFFE27A82F23DD4B00062FFE /* Assets in Frameworks */ = {isa = PBXBuildFile; productRef = EFFE27A72F23DD4B00062FFE /* Assets */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +45,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF65F0FE2F203244000B1C59 /* Tolgee in Frameworks */,
 				EFFE27A82F23DD4B00062FFE /* Assets in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,7 +90,6 @@
 			);
 			name = SocialSampleApp;
 			packageProductDependencies = (
-				EF65F0FD2F203244000B1C59 /* Tolgee */,
 				EFFE27A72F23DD4B00062FFE /* Assets */,
 			);
 			productName = SocialSampleApp;
@@ -126,7 +123,6 @@
 			mainGroup = EF5E857B2F20162D00A9D23E;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				EF65F0FC2F203244000B1C59 /* XCRemoteSwiftPackageReference "tolgee-mobile-swift-sdk" */,
 				EFFE27A62F23DD4B00062FFE /* XCLocalSwiftPackageReference "Packages/Assets" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -396,23 +392,7 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		EF65F0FC2F203244000B1C59 /* XCRemoteSwiftPackageReference "tolgee-mobile-swift-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tolgee/tolgee-mobile-swift-sdk.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		EF65F0FD2F203244000B1C59 /* Tolgee */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF65F0FC2F203244000B1C59 /* XCRemoteSwiftPackageReference "tolgee-mobile-swift-sdk" */;
-			productName = Tolgee;
-		};
 		EFFE27A72F23DD4B00062FFE /* Assets */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Assets;
