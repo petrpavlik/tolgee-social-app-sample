@@ -111,7 +111,7 @@ struct ContentView: View {
                         
                         // Profile info
                         VStack(alignment: .leading, spacing: 8) {
-                            TolgeeText(dataStore.currentUser.displayName)
+                            Text(dataStore.currentUser.displayName)
                                 .font(.title2)
                                 .bold()
                             
@@ -119,7 +119,7 @@ struct ContentView: View {
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                             
-                            TolgeeText(dataStore.currentUser.bio)
+                            Text(dataStore.currentUser.bio)
                                 .font(.body)
                                 .padding(.top, 4)
                             
