@@ -170,5 +170,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environment(\.locale, Locale(identifier: "pt"))
+        .environment(\.locale, Locale(identifier: "en"))
 }
