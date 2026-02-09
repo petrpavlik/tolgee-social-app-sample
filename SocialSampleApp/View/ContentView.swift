@@ -134,6 +134,8 @@ struct ContentView: View {
                         
                         Divider()
                         
+                        Text(Assets.strings.testFromPackage)
+                        
                         // User's tweets
                         LazyVStack(spacing: 0) {
                             ForEach(dataStore.tweets.filter { $0.author.id == dataStore.currentUser.id }) { tweet in
